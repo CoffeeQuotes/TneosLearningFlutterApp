@@ -1,16 +1,12 @@
-# tneos_eduloution
+# Tneo Eduloution Online Live Streaming Flutter
 
-Online Live Teaching 
+### Online Live Teaching
 
-## Getting Started
+<img src="https://i.ibb.co/BNfvBXp/Screenshot-1605702065.png" height="25%" width="25%"/>
+<img src="https://i.ibb.co/JHnvDp2/Screenshot-1605702093.png" height="25%" width="25%"/>
+<img src="https://i.ibb.co/mbrzj3f/Screenshot-1605702180.png" height="25%" width="25%"/>
+<img src="https://i.ibb.co/hRFq1tk/Screenshot-1605778068.png" height="25%" width="25%"/>
+<img src="https://i.ibb.co/1br6qJZ/Screenshot-1605702154.png" height="25%" width="25%"/>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Flutter App For Laravel Web Application
+[ProjectTneosLaravel](https://github.com/CoffeeQuotes/ProjectTneosLaravel.git)
