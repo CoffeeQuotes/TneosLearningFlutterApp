@@ -41,6 +41,8 @@ dependencies:
   webview_flutter: ^1.0.7
   flutter_spinkit: ^4.1.2
   giffy_dialog: ^1.8.0
+  razorpay_flutter: ^1.2.2
+  fluttertoast: ^7.1.2
 
 
 dev_dependencies:

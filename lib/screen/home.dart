@@ -4,14 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/network_utils/api.dart';
 import 'package:tneos_eduloution/screen/boardlist.dart';
-import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/screen/login.dart';
-import 'package:tneos_eduloution/widgets/card-small.dart';
 import 'package:tneos_eduloution/widgets/drawer.dart';
 import 'package:tneos_eduloution/widgets/navbar.dart';
-import 'package:tneos_eduloution/network_utils/lives-api.dart';
-import 'package:tneos_eduloution/network_utils/live.dart';
 
 class Home extends StatefulWidget {
   @override

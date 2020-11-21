@@ -1,15 +1,41 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/network_utils/package.dart';
 import 'package:tneos_eduloution/network_utils/packages-api.dart';
-import 'package:tneos_eduloution/screen/packageview.dart';
+import 'package:tneos_eduloution/screen/payment.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/drawer.dart';
 import 'package:tneos_eduloution/widgets/navbar.dart';
 
-class PackagesList extends StatelessWidget {
+class PackagesList extends StatefulWidget {
+  @override
+  _PackagesListState createState() => _PackagesListState();
+}
+
+class _PackagesListState extends State<PackagesList> {
+  int userId;
+
+  @override
+  void initState() {
+    _loadUserData();
+    super.initState();
+  }
+
+  _loadUserData() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user'));
+    if (user != null) {
+      setState(() {
+        userId = user['id'];
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,22 +45,7 @@ class PackagesList extends StatelessWidget {
         title: "Our Courses",
         transparent: false,
       ),
-      // AppBar(
-      //   title: Text('Our Courses'),
-      //   flexibleSpace: Container(
-      //     decoration: BoxDecoration(
-      //       gradient: brandGradient,
-      //     ),
-      //   ),
-      // ),
       body: Container(
-
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: ExactAssetImage('assets/img/main.jpg'),
-        //     fit: BoxFit.cover,
-        //   )
-        // ),
         child: FutureBuilder(
           future: fetchPackages(),
           builder: (context, snapshot) {
@@ -160,7 +171,7 @@ class PackagesList extends StatelessWidget {
                                   ),
                                   color: ArgonColors.info,
                                   onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PackageView()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Payment(list.amount, list.id, userId, list.name, list.image, list.packageClass, list.subject, list.board)));
                               })
                             ],
                           ),
