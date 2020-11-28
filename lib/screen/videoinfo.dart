@@ -86,7 +86,7 @@ class VideoInfoState extends State<VideoInfo> {
                   title,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 24,
+                    fontSize: 17,
                     color: ArgonColors.header,
                   ),
                 ),
@@ -96,52 +96,83 @@ class VideoInfoState extends State<VideoInfo> {
                 child: Text(
                   metaDesc,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 13,
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: FlatButton.icon(
-                  padding: EdgeInsets.all(12.0),
-                  label: Text(
-                    'WATCH ON FULLSCREEN',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600, color: ArgonColors.white),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FlatButton.icon(
+                      padding: EdgeInsets.all(6.0),
+                      label: Text(
+                        'Go Back'.toUpperCase(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: ArgonColors.white),
+                      ),
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: ArgonColors.white,
+                      ),
+                      splashColor: ArgonColors.warning,
+                      color: ArgonColors.primary,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
                   ),
-                  icon: Icon(
-                    Icons.fullscreen,
-                    color: ArgonColors.white,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FlatButton.icon(
+                      padding: EdgeInsets.all(6.0),
+                      label: Text(
+                        'Fullscreen'.toUpperCase(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: ArgonColors.white),
+                      ),
+                      icon: Icon(
+                        Icons.fullscreen,
+                        color: ArgonColors.white,
+                      ),
+                      splashColor: ArgonColors.warning,
+                      color: ArgonColors.primary,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Video(userId, title,
+                                  videoClass, subject, board, embed, metaDesc),
+                            ));
+                      },
+                    ),
                   ),
-                  splashColor: ArgonColors.warning,
-                  color: ArgonColors.primary,
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Video(userId, title, videoClass,
-                              subject, board, embed, metaDesc),
-                        ));
-                  },
-                ),
+                ],
               ),
               Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "About the Video",
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: ArgonColors.label,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "About the Video",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: ArgonColors.label,
+                      ),
                     ),
                   )),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  'This video is about $title, It is for $board board, class ${videoClass}th students, the subject taught here is $subject . All right reserved to Tneos Pvt Ltd.',
+                  'This video is about $title, It is for $board board, class ${videoClass}th students, the subject taught here is $subject . All right reserved to Tneos Limited.',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: ArgonColors.black,
+                    color: Color(0xff808080),
                   ),
                 ),
               )

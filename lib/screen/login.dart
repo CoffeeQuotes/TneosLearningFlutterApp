@@ -41,179 +41,195 @@ class _LoginState extends State<Login> {
       body: Container(
         // color: Colors.teal,
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/img/bg.png"),
-              fit: BoxFit.cover,
-
-          ),
+          // image: DecorationImage(
+          //     image: AssetImage("assets/img/bg.png"),
+          //     fit: BoxFit.cover,
+          //
+          // ),
         ),
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top:40.0),
+                  child: Text('Tneos Eduloutions',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Color(0xff042fbb),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 60.0),
+                  child: Image.asset('assets/img/login.png'),
+                ),
+                Stack(
                   children: <Widget>[
-                    Card(
-                      elevation: 4.0,
-                      color: Colors.transparent,
-                      margin: EdgeInsets.only(left: 20, right: 20),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [
-                                Color(0xFF00c2cb).withOpacity(0.5),
-                                Color(0xFF5e17eb).withOpacity(0.5)
-                              ]
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Form(
-                            key: _formKey,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text('Sign In Now', style: TextStyle(color: ArgonColors.white, fontSize: 20,),),
-                                ),
-                                TextFormField(
-                                  style: TextStyle(color: ArgonColors.white),
-                                  cursorColor: Color(0xFF9b9b9b),
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                    prefixIcon: Icon(
-                                      FontAwesomeIcons.mailBulk,
-                                      color: ArgonColors.white,
-                                    ),
-                                    hintText: "Email",
-                                    hintStyle: TextStyle(
-                                        color: ArgonColors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.normal),
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: ArgonColors.muted),
+                    Positioned(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              decoration: BoxDecoration(
+                                // gradient: LinearGradient(
+                                //     colors: [
+                                //       Color(0xFF00c2cb).withOpacity(0.5),
+                                //       Color(0xFF5e17eb).withOpacity(0.5)
+                                //     ]
+                                // ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Form(
+                                  key: _formKey,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text('Sign In Now', style: TextStyle(color: Color(0xff042fbb), fontWeight: FontWeight.w600, fontSize: 20,),),
                                       ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: ArgonColors.white),
+                                      TextFormField(
+                                        style: TextStyle(color: Color(0xff042fbb)),
+                                        cursorColor: Color(0xFF9b9b9b),
+                                        keyboardType: TextInputType.text,
+                                        decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            FontAwesomeIcons.mailBulk,
+                                            color: Color(0xff042fbb),
+                                          ),
+                                          hintText: "Email",
+                                          hintStyle: TextStyle(
+                                              color: Color(0xff042fbb),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600),
+                                            enabledBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(color: ArgonColors.muted),
+                                            ),
+                                            focusedBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(color: Color(0xff042fbb)),
+                                            ),
+                                          errorStyle: TextStyle(
+                                            color: ArgonColors.inputError,
+                                          ),
+                                        ),
+                                        validator: (emailValue) {
+                                          if (emailValue.isEmpty) {
+                                            return 'Please enter email';
+                                          }
+                                          email = emailValue;
+                                          return null;
+                                        },
                                       ),
-                                    errorStyle: TextStyle(
-                                      color: ArgonColors.inputError,
-                                    ),
-                                  ),
-                                  validator: (emailValue) {
-                                    if (emailValue.isEmpty) {
-                                      return 'Please enter email';
-                                    }
-                                    email = emailValue;
-                                    return null;
-                                  },
-                                ),
-                                TextFormField(
+                                      TextFormField(
 
-                                  style: TextStyle(color: ArgonColors.white),
-                                  cursorColor: Color(0xFF9b9b9b),
-                                  keyboardType: TextInputType.text,
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    prefixIcon: Icon(
-                                      FontAwesomeIcons.key,
-                                      color: ArgonColors.white,
-                                    ),
-                                    hintText: "Password",
-                                    hintStyle: TextStyle(
-                                        color: ArgonColors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.normal),
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(color: ArgonColors.muted),
-                                    ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(color: ArgonColors.white),
-                                    ),
-                                    errorStyle: TextStyle(
-                                      color: ArgonColors.inputError,
-                                    ),
-                                  ),
-                                  validator: (passwordValue) {
-                                    if (passwordValue.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    password = passwordValue;
-                                    return null;
-                                  },
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: FlatButton(
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 8, bottom: 8, left: 10, right: 10),
-                                      child: Text(
-                                        _isLoading ? 'Proccessing...' : 'Login',
-                                        textDirection: TextDirection.ltr,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15.0,
-                                          decoration: TextDecoration.none,
-                                          fontWeight: FontWeight.normal,
+                                        style: TextStyle(color:  Color(0xff042fbb)),
+                                        cursorColor: Color(0xFF9b9b9b),
+                                        keyboardType: TextInputType.text,
+                                        obscureText: true,
+                                        decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            FontAwesomeIcons.key,
+                                            color: Color(0xff042fbb),
+                                          ),
+                                          hintText: "Password",
+                                          hintStyle: TextStyle(
+                                              color: Color(0xff042fbb),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600),
+                                          enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(color: ArgonColors.muted),
+                                          ),
+                                          focusedBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(color: Color(0xff042fbb)
+                                            ),
+                                          ),
+                                          errorStyle: TextStyle(
+                                            color: ArgonColors.inputError,
+                                          ),
+                                        ),
+                                        validator: (passwordValue) {
+                                          if (passwordValue.isEmpty) {
+                                            return 'Please enter some text';
+                                          }
+                                          password = passwordValue;
+                                          return null;
+                                        },
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: FlatButton(
+                                          child: Padding(
+                                            padding: EdgeInsets.only(
+                                                top: 8, bottom: 8, left: 10, right: 10),
+                                            child: Text(
+                                              _isLoading ? 'Proccessing...' : 'Login',
+                                              textDirection: TextDirection.ltr,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15.0,
+                                                decoration: TextDecoration.none,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                            ),
+                                          ),
+                                          color: Color(0xff042fbb),
+                                          disabledColor: Colors.grey,
+                                          shape: new RoundedRectangleBorder(
+                                              borderRadius:
+                                                  new BorderRadius.circular(20.0)),
+                                          onPressed: () {
+                                            if (_formKey.currentState.validate()) {
+                                              _login();
+                                            }
+                                          },
                                         ),
                                       ),
-                                    ),
-                                    color: ArgonColors.label,
-                                    disabledColor: Colors.grey,
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(20.0)),
-                                    onPressed: () {
-                                      if (_formKey.currentState.validate()) {
-                                        _login();
-                                      }
-                                    },
+                                    ],
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) => Register()));
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.only(top:2.0, bottom: 2.0, left: 6, right: 6),
+                                  decoration: BoxDecoration(
+                                    color: ArgonColors.bgColorScreen,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Text(
+                                    'Create new Account',
+                                    style: TextStyle(
+                                      color: Color(0xff042fbb),
+                                      fontSize: 15.0,
+                                      decoration: TextDecoration.none,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              new MaterialPageRoute(
-                                  builder: (context) => Register()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.only(top:2.0, bottom: 2.0, left: 6, right: 6),
-                          decoration: BoxDecoration(
-                            color: ArgonColors.bgColorScreen,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            'Create new Account',
-                            style: TextStyle(
-                              color: ArgonColors.label,
-                              fontSize: 15.0,
-                              decoration: TextDecoration.none,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    )
                   ],
                 ),
-              ),
-            )
-          ],
+              ],
+            ),
+          ),
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/network_utils/api.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -51,7 +52,7 @@ class ArgonDrawer extends StatelessWidget {
                 padding: EdgeInsets.only(top: 24, left: 16, right: 16),
                 children: [
                   DrawerTile(
-                      icon: Icons.home,
+                      icon: FontAwesomeIcons.home, //Icons.home,
                       onTap: () {
                         if (currentPage != "Home")
                           Navigator.pushReplacementNamed(context, '/home');
@@ -61,7 +62,7 @@ class ArgonDrawer extends StatelessWidget {
                       isSelected: currentPage == "Home" ? true : false),
                   SizedBox(height: 10,),
                   DrawerTile(
-                      icon: Icons.pie_chart,
+                      icon: FontAwesomeIcons.userCircle, //Icons.pie_chart,
                       onTap: () {
                         if (currentPage != "Profile")
                           Navigator.pushReplacementNamed(context, '/profile');
@@ -71,7 +72,7 @@ class ArgonDrawer extends StatelessWidget {
                       isSelected: currentPage == "Profile" ? true : false),
                   SizedBox(height: 10,),
                   DrawerTile(
-                      icon: Icons.video_collection,
+                      icon: FontAwesomeIcons.boxes, //Icons.video_collection,
                       onTap: () {
                         if (currentPage != "Courses")
                           Navigator.pushReplacementNamed(context, '/packages');
@@ -81,7 +82,7 @@ class ArgonDrawer extends StatelessWidget {
                       isSelected: currentPage == "Courses" ? true : false),
                   SizedBox(height: 10,),
                   DrawerTile(
-                      icon: Icons.ondemand_video_rounded,
+                      icon: FontAwesomeIcons.video, //Icons.ondemand_video_rounded,
                       onTap: () {
                         if (currentPage != "liveslist")
                           Navigator.pushReplacementNamed(context, '/liveslist');
@@ -91,7 +92,7 @@ class ArgonDrawer extends StatelessWidget {
                       isSelected: currentPage == "liveslist" ? true : false),
                   SizedBox(height: 10,),
                   DrawerTile(
-                      icon: Icons.logout,
+                      icon: FontAwesomeIcons.signOutAlt,//Icons.logout,
                       onTap: () {
                           logout();
                           Navigator.pushReplacementNamed(context, '/login');
@@ -123,7 +124,7 @@ class ArgonDrawer extends StatelessWidget {
                       ),
                       SizedBox(height: 10,),
                       DrawerTile(
-                          icon: Icons.web,
+                          icon: FontAwesomeIcons.connectdevelop, //Icons.web,
                           onTap: _launchURL,
                           iconColor: ArgonColors.muted,
                           title: "Visit Our Site",

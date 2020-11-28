@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/network_utils/profile-api.dart';
 import 'package:tneos_eduloution/screen/home.dart';
+import 'package:tneos_eduloution/screen/paidcourses.dart';
 import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/screen/viewer.dart';
 import 'package:tneos_eduloution/styles/style.dart';
@@ -167,7 +168,7 @@ class _ProfilePageState extends State < ProfilePage > {
                                                         ),
                                                         child: GestureDetector(
                                                           onTap: () {
-                                                            Navigator.push(context, MaterialPageRoute(builder: (context)=> PaidLiveList()));
+                                                            Navigator.push(context, MaterialPageRoute(builder: (context)=> PaidCourses()));
                                                           },
                                                           child: Text(
                                                             "Your Lives",
@@ -209,20 +210,22 @@ class _ProfilePageState extends State < ProfilePage > {
                                                   ),
                                                   SizedBox(height: 40.0),
                                                   Align(
-                                                    child: Text(userProfile.firstname + " " + userProfile.lastname,
+                                                    child: Text(userProfile.firstname.toUpperCase() + " " + userProfile.lastname.toUpperCase(),
                                                         style: TextStyle(
-                                                            color: Color.fromRGBO(
-                                                                50, 50, 93, 1),
+                                                            color: ArgonColors.info,
                                                             fontSize: 28.0)),
                                                   ),
                                                   SizedBox(height: 10.0),
                                                   Align(
-                                                    child: Text(userProfile.schoolName,
-                                                        style: TextStyle(
-                                                            color: Color.fromRGBO(
-                                                                50, 50, 93, 1),
-                                                            fontSize: 18.0,
-                                                            fontWeight: FontWeight.w600)),
+                                                    alignment: Alignment.center,
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.all(8.0),
+                                                      child: Text(userProfile.schoolName,
+                                                          style: TextStyle(
+                                                              color: ArgonColors.muted,
+                                                              fontSize: 10.0,
+                                                              fontWeight: FontWeight.w600)),
+                                                    ),
                                                   ),
                                                   Divider(
                                                     height: 40.0,
@@ -240,7 +243,7 @@ class _ProfilePageState extends State < ProfilePage > {
                                                           style: TextStyle(
                                                               color: Color.fromRGBO(
                                                                   82, 95, 127, 1),
-                                                              fontSize: 18.0,
+                                                              fontSize: 12.0,
                                                               fontWeight:
                                                               FontWeight.w600)),
                                                     ),
@@ -260,7 +263,7 @@ class _ProfilePageState extends State < ProfilePage > {
                                       child: Align(
                                         child: GestureDetector(
                                           child: CircleAvatar(
-                                            backgroundImage: NetworkImage('http://10.0.2.2:8000/'+ userProfile.image),
+                                            backgroundImage: NetworkImage('https://tneos.in/'+ userProfile.image),
                                             radius: 65.0,
                                             // maxRadius: 200.0,
                                           ),

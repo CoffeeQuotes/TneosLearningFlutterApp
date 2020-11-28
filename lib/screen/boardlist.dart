@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:tneos_eduloution/network_utils/live.dart';
 import 'package:tneos_eduloution/network_utils/lives-api.dart';
+import 'package:tneos_eduloution/screen/paidcourses.dart';
 import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/card-small.dart';
@@ -83,7 +84,7 @@ class _BoardLiveState extends State<BoardLive> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  PaidLiveList()));
+                                                  PaidCourses()));
                                     },
                                     cta: "Watch Now",
                                     title: '${list.title}',
@@ -92,7 +93,7 @@ class _BoardLiveState extends State<BoardLive> {
                                     board: '${list.board}',
                                     subject: '${list.subject}',
                                     img:
-                                        'http://10.0.2.2:8000/storage/${list.image}',
+                                        'https://tneos.in/storage/${list.image}',
                                   ),
                                 ],
                               ),
@@ -112,11 +113,13 @@ class _BoardLiveState extends State<BoardLive> {
                       child: AssetGiffyDialog(
                         image: Image.asset('assets/img/live.gif'),
                         title: Text('No Content Found', style: TextStyle(
-                          fontSize: 22.0,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.w600,
                         ),
                         ),
-                        description: Text('This course videos are not available yet, Kindly contact us if you have any question.', textAlign: TextAlign.center,),
+                        description: Text('This course videos are not available yet, Kindly contact us if you have any question.', textAlign: TextAlign.center, style: TextStyle(
+                          color: Color(0xff808080),
+                        ),),
                         buttonOkText: Text('Call Now', style: TextStyle(
                           color: ArgonColors.white,
                           fontWeight: FontWeight.w600,
@@ -125,7 +128,9 @@ class _BoardLiveState extends State<BoardLive> {
                           _launchURL();
                         },
                         buttonOkColor: ArgonColors.success,
-                        buttonCancelText: Text('Go Back'),
+                        buttonCancelText: Text('Go Back', style: TextStyle(
+                          color:  ArgonColors.white,
+                        ),),
                       )
                   ));
 

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
@@ -14,13 +13,16 @@ import 'package:tneos_eduloution/widgets/drawer.dart';
 import 'package:tneos_eduloution/widgets/navbar.dart';
 
 class PaidLiveList extends StatefulWidget {
+  int catId;
+  PaidLiveList(this.catId);
   @override
-  _PaidLiveListState createState() => _PaidLiveListState();
+  _PaidLiveListState createState() => _PaidLiveListState(this.catId);
 }
 
 class _PaidLiveListState extends State<PaidLiveList> {
   int userId;
-
+  int catId;
+  _PaidLiveListState(this.catId);
   @override
   void initState() {
     _loadUserData();
@@ -49,7 +51,7 @@ class _PaidLiveListState extends State<PaidLiveList> {
       ),
       body: Container(
         child: FutureBuilder(
-            future: fetchPaidLive(userId),
+            future: fetchCatPaidLive(catId),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Container(
@@ -132,7 +134,7 @@ class _PaidLiveListState extends State<PaidLiveList> {
                                       board: '${list.board}',
                                       subject: '${list.subject}',
                                       img:
-                                          'http://10.0.2.2:8000/storage/${list.image}',
+                                          'https://tneos.in/storage/${list.image}',
                                     ),
                                   ],
                                 ),

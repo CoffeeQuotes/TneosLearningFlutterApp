@@ -76,8 +76,8 @@ class _HomeState extends State<Home> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('BUY BEST COURSES NOW!', style: TextStyle(fontSize: 16.0, letterSpacing: 2, fontWeight: FontWeight.w600),),
-                                  Text('New Courses with Expert Faculties', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),)
+                                  Text('BUY BEST COURSES NOW!', style: TextStyle(fontSize: 14.0, letterSpacing: 2, fontWeight: FontWeight.w600, color: ArgonColors.white),),
+                                  Text('New Courses with Expert Faculties', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: ArgonColors.header),)
                                 ],
                               )
                           );
@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                       'Hi, $name!',
                       style: TextStyle(
                           color: ArgonColors.primary,
-                          fontSize: 32,
+                          fontSize: 26,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -99,7 +99,8 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text('Welcome to Tneos, Enjoy Learning, and Never Stop Learning!',
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 12,
+                          color: Color(0xff808080),
                           fontWeight: FontWeight.w600
                       ),),
                   ),
@@ -108,7 +109,7 @@ class _HomeState extends State<Home> {
 
                     ],
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -130,11 +131,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('CBSE', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our CBSE Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -142,7 +145,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -164,11 +167,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('BIHAR BOARD', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our BIHAR BOARD Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -176,7 +181,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -198,11 +203,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('ODISHA', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our ODISHA Board Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -210,7 +217,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -232,11 +239,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('Madhya Pradesh', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our Madhya Pradesh Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -244,7 +253,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -266,11 +275,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('Rajsthan Board', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our Rajsthan Board Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -278,7 +289,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -300,11 +311,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('Uttar Pradesh', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our UP Board Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -312,7 +325,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -334,11 +347,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('Jharkhand Board', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our Jharkhand Board Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -346,7 +361,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
@@ -368,11 +383,13 @@ class _HomeState extends State<Home> {
                             children: [
                               Text('Haryana Board', style: TextStyle(
                                 color: ArgonColors.header,
-                                fontSize: 30,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),),
                               Text('Browse our Haryana Classes', style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontSize: 8,
+                                color: Color(0xff808080),
                               ),),
                             ],
                           ),
@@ -412,3 +429,4 @@ class _HomeState extends State<Home> {
     }
   }
 }
+

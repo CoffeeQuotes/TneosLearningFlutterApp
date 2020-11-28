@@ -33,7 +33,7 @@ class Onboarding extends StatelessWidget {
                             text: "Online Education",
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 48,
+                                fontSize: 40,
                                 fontWeight: FontWeight.w600),
                           )),
                         ),

@@ -41,7 +41,7 @@ class CardSmall extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Flexible(
-                        flex: 10,
+                        flex: 8,
                         child:  Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           // mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +80,7 @@ class CardSmall extends StatelessWidget {
                               child: Text(liveclass,
                               style: TextStyle(
                                 color: ArgonColors.white,
-                                fontSize: 13,
+                                fontSize: 9,
                                 fontWeight: FontWeight.w600,
                               ),),
                             ),
@@ -100,7 +100,7 @@ class CardSmall extends StatelessWidget {
                               child: Text(board,
                               style: TextStyle(
                                 color: ArgonColors.white,
-                                fontSize: 13,
+                                fontSize: 9,
                                 fontWeight: FontWeight.w600,
                               ),),
                             ),
@@ -121,7 +121,7 @@ class CardSmall extends StatelessWidget {
                               child: Text(subject,
                               style: TextStyle(
                                 color: ArgonColors.white,
-                                fontSize: 13,
+                                fontSize: 9,
                                 fontWeight: FontWeight.w600,
                               ),),
                             ),
@@ -135,17 +135,26 @@ class CardSmall extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(title,
-                                maxLines: 2,
-                                style: TextStyle(
-                                    color: ArgonColors.header, fontSize: 20, fontWeight: FontWeight.w600)),
+                            Padding(
+                              padding: const EdgeInsets.only(left:8.0),
+                              child: Text(title,
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                      color: ArgonColors.header, fontSize: 13, fontWeight: FontWeight.w600)),
+                            ),
                             Container(
                               padding: EdgeInsets.all(4.0),
-                              child: Text(cta,
-                                  style: TextStyle(
-                                      color: ArgonColors.primary,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w600)),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Container(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text(cta,
+                                      style: TextStyle(
+                                          color: ArgonColors.primary,
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ),
                             )
                           ],
                         ))

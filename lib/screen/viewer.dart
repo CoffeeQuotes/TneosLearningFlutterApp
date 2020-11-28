@@ -24,7 +24,7 @@ class _ViewerState extends State<Viewer> {
       body: SafeArea(
         child: Center(
         child: InteractiveViewer(
-          child: Image.network('http://10.0.2.2:8000/'+ path),
+          child: Image.network('https://tneos.in/'+ path),
         ),
           ),
       ),

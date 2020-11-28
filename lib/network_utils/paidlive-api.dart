@@ -7,3 +7,10 @@ Future<dynamic> fetchPaidLive(userId) async {
   final response = await Network().getData(_url);
   return livesFromJson(response.body);
 }
+
+Future<dynamic> fetchCatPaidLive(catId) async {
+  String url = "/paidlive/category/";
+  String _url = url + catId.toString();
+  final response = await Network().getData(_url);
+  return livesFromJson(response.body);
+}

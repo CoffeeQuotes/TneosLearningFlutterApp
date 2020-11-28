@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 
@@ -101,8 +102,8 @@ class _NavbarState extends State<Navbar> {
                         IconButton(
                             icon: Icon(
                                 !widget.backButton
-                                    ? Icons.menu
-                                    : Icons.arrow_back_ios,
+                                    ? FontAwesomeIcons.hamburger//Icons.menu
+                                    : FontAwesomeIcons.arrowLeft,//Icons.arrow_back_ios,
                                 color: !widget.transparent
                                     ? (widget.bgColor == ArgonColors.white
                                         ? ArgonColors.initial
@@ -123,7 +124,7 @@ class _NavbarState extends State<Navbar> {
                                         : ArgonColors.white)
                                     : ArgonColors.white,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 18.0)),
+                                fontSize: 12.0)),
                       ],
                     ),
                     if (widget.rightOptions)
@@ -135,7 +136,7 @@ class _NavbarState extends State<Navbar> {
                               Navigator.pushNamed(context, '/packages');
                             },
                             child: IconButton(
-                                icon: Icon(Icons.video_collection_outlined,
+                                icon: Icon(FontAwesomeIcons.wallet,//Icons.video_collection_outlined,
                                     color: !widget.transparent
                                         ? (widget.bgColor == ArgonColors.white
                                             ? ArgonColors.initial
@@ -149,7 +150,7 @@ class _NavbarState extends State<Navbar> {
                               Navigator.pushNamed(context, '/profile');
                             },
                             child: IconButton(
-                                icon: Icon(Icons.account_circle,
+                                icon: Icon(FontAwesomeIcons.userNinja,//Icons.account_circle,
                                     color: !widget.transparent
                                         ? (widget.bgColor == ArgonColors.white
                                             ? ArgonColors.initial

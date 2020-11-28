@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/network_utils/package.dart';
 import 'package:tneos_eduloution/network_utils/packages-api.dart';
@@ -66,15 +66,15 @@ class _PackagesListState extends State<PackagesList> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CachedNetworkImage(
-                              imageUrl: 'http://10.0.2.2:8000/storage/' + '${list.image}',
+                              imageUrl: 'https://tneos.in/storage/' + '${list.image}',
                               placeholder: (context, url) => Center(child: SpinKitCubeGrid(color: ArgonColors.inputError,)),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 18.0),
                                 child: Text(
-                                  '${list.name}',
+                                  '${list.name.toUpperCase()}',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 13,
                                     color: ArgonColors.header,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -101,7 +101,7 @@ class _PackagesListState extends State<PackagesList> {
                                         '${list.packageClass}th Class',
                                         style: TextStyle(
                                           color: ArgonColors.white,
-                                          fontSize: 13,
+                                          fontSize: 9,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
@@ -124,7 +124,7 @@ class _PackagesListState extends State<PackagesList> {
                                         '${list.board.toString()}',
                                         style: TextStyle(
                                           color: ArgonColors.white,
-                                          fontSize: 13,
+                                          fontSize: 9,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
@@ -147,7 +147,7 @@ class _PackagesListState extends State<PackagesList> {
                                         '${list.subject}',
                                         style: TextStyle(
                                           color: ArgonColors.white,
-                                          fontSize: 13,
+                                          fontSize: 9,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
@@ -155,24 +155,39 @@ class _PackagesListState extends State<PackagesList> {
                                   ),
                                 ],
                               ),
-                              Text('₹ ${list.amount} /- Only', style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: ArgonColors.label,
-                              ),),
-                              RaisedButton(
-                                  child: Text('Buy Course',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
-                                      letterSpacing: 1,
-                                      color: ArgonColors.white,
-                                    ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        FontAwesomeIcons.rupeeSign,
+                                        color: ArgonColors.warning,
+                                      ),
+                                      Text('${list.amount} /- Only', style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: ArgonColors.primary,
+
+                                      ),),
+                                    ],
                                   ),
-                                  color: ArgonColors.info,
-                                  onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Payment(list.amount, list.id, userId, list.name, list.image, list.packageClass, list.subject, list.board)));
-                              })
+
+                                  RaisedButton(
+                                      child: Text('Buy Course',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14,
+                                          letterSpacing: 1,
+                                          color: ArgonColors.white,
+                                        ),
+                                      ),
+                                      color: ArgonColors.info,
+                                      onPressed: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Payment(list.amount, list.id, userId, list.name, list.image, list.packageClass, list.subject, list.board)));
+                                      })
+                                ],
+                              )
                             ],
                           ),
                         ),

@@ -1,14 +1,15 @@
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:tneos_eduloution/network_utils/api.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/drawer.dart';
 import 'package:tneos_eduloution/widgets/navbar.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class Payment extends StatefulWidget {
   final int amount;
@@ -21,7 +22,7 @@ class Payment extends StatefulWidget {
   final String board;
   Payment(this.amount, this.categoryId, this.userId, this.name, this.image, this.packageClass, this.subject, this.board);
   @override
-  _PaymentState createState() => _PaymentState(this.amount, this.categoryId, this.categoryId, this.name, this.image, this.packageClass, this.subject, this.board);
+  _PaymentState createState() => _PaymentState(this.amount, this.categoryId, this.userId, this.name, this.image, this.packageClass, this.subject, this.board);
 }
 
 class _PaymentState extends State<Payment> {
@@ -36,8 +37,8 @@ class _PaymentState extends State<Payment> {
   String board;
 
   Razorpay _razorpay;
-  // var orderId;
-  // var razorpayId;
+   var orderId;
+   var razorpayId;
 
   _PaymentState(this.amount, this.categoryId, this.userId, this.name,
       this.image, this.packageClass, this.subject, this.board);
@@ -59,7 +60,7 @@ class _PaymentState extends State<Payment> {
               Expanded(
                 flex: 4,
                 child: CachedNetworkImage(
-                  imageUrl: 'http://10.0.2.2:8000/storage/' + '$image',
+                  imageUrl: 'https://tneos.in/storage/' + '$image',
                   placeholder: (context, url) =>
                       Center(child: SpinKitCubeGrid(
                         color: ArgonColors.inputError,)),
@@ -72,8 +73,12 @@ class _PaymentState extends State<Payment> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: ArgonColors.success,
+                        ),
                         margin: EdgeInsets.only(left: 10),
-                        color: ArgonColors.success,
+
                         child: Text(board,
                             style: TextStyle(
                               color: ArgonColors.white,
@@ -84,7 +89,11 @@ class _PaymentState extends State<Payment> {
                         padding: const EdgeInsets.all(4.0),
                       ),
                       Container(
-                        color: ArgonColors.primary,
+                        margin: EdgeInsets.only(right: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: ArgonColors.primary,
+                        ),
                         child: Text(subject,
                             style: TextStyle(
                               color: ArgonColors.white,
@@ -96,7 +105,10 @@ class _PaymentState extends State<Payment> {
                       ),
                       Container(
                         margin: EdgeInsets.only(right: 10),
-                        color: ArgonColors.warning,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: ArgonColors.warning,
+                        ),
                         child: Text("${packageClass}th class",
                             style: TextStyle(
                               color: ArgonColors.white,
@@ -113,12 +125,12 @@ class _PaymentState extends State<Payment> {
                 ),
               ),
               Expanded(
-                flex: 2,
+                flex: 1,
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   child: Text(name, style: TextStyle(
                     color: ArgonColors.header,
-                    fontSize: 28,
+                    fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),),
                 ),
@@ -131,11 +143,24 @@ class _PaymentState extends State<Payment> {
                       "This course is $name, In this course, you will introduce to class ${packageClass}th $subject of $board. The course include all the lecture and live classes from our subject expert."
                       ,
                       style: TextStyle(
-                        fontSize: 19,
+                        fontSize: 11,
+                        color: Color(0xff808080),
                         fontWeight: FontWeight.w500,
                       )
                   ),
                 ),
+              ),
+              Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Note: Please Check if you have already purchased the course in your profile page before buying.',
+                      style: TextStyle(
+                        fontSize: 8,
+                        color: ArgonColors.error,
+                      )
+                    ),
+                  ),
               ),
 
               Expanded(
@@ -152,10 +177,11 @@ class _PaymentState extends State<Payment> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.add_shopping_cart,
+                            FontAwesomeIcons.shoppingCart,
                             color: ArgonColors.bgColorScreen,
                             size: 32,
                           ),
+                          SizedBox(width: 20,),
                           Text('BUY NOW', style: TextStyle(
                             color: ArgonColors.white,
                             fontSize: 32,
@@ -194,10 +220,10 @@ class _PaymentState extends State<Payment> {
 
   void openCheckout() async {
     var options = {
-      'key': 'rzp_test_YbFME7OVSi2Kvx',
+      'key': 'rzp_live_CsYsxq7OyyehDC',
       'amount': amount * 100,
       'name': name,
-      'image': 'https://tneos.in/app-assets/img/core-img/favicon.ico',
+      'image': 'https://i.imgur.com/YfB6RPZ.png',
       'description': 'Buy the Course to get access for all live classes',
       'prefill': {'contact': '', 'email': ''},
       'external': {
@@ -211,39 +237,52 @@ class _PaymentState extends State<Payment> {
     }
   }
 
-  void _handlePaymentSuccess(PaymentSuccessResponse response)  {
-    // orderId = 12123;
-    // razorpayId = response.paymentId;
-    _subscription();
-    Fluttertoast.showToast(
-        msg: "SUCCESS: " + response.paymentId, timeInSecForIosWeb: 4);
+  void _handlePaymentSuccess(PaymentSuccessResponse response)  async {
+     orderId = response.orderId;
+     razorpayId = response.paymentId;
+    var data = {
+      'name': name,
+      'amount': amount,
+      'order_id': orderId,
+      'razorpay_id': razorpayId,
+      'category_id': categoryId,
+      'user_id': userId};
+    var res = await Network().postData(data, '/subscription');
+    var body = json.decode(res.body);
+    if (body['success']) {
+       Scaffold.of(context).showSnackBar(SnackBar(content: Text('Payment Done Successfully')));
+    } else {
+      // Fluttertoast.showToast(
+      //     msg: "Kindly Contact US: " + response.paymentId, timeInSecForIosWeb: 4);
+      Scaffold.of(context).showSnackBar(SnackBar(content: Text("Kindly Contact US"+ response.paymentId)));
+    }
+    // _subscription();
+
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
-    Fluttertoast.showToast(
-        msg: "ERROR: " + response.code.toString() + " - " + response.message,
-        timeInSecForIosWeb: 4);
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text("ERROR: " + response.code.toString() + " - " + response.message)));
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
-    Fluttertoast.showToast(
-        msg: "EXTERNAL_WALLET: " + response.walletName, timeInSecForIosWeb: 4);
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text("EXTERNAL_WALLET: " + response.walletName)));
   }
 
-void _subscription() async {
-  var data = {
-    'name': name,
-    'amount': amount,
-    // 'order_id': orderId,
-    // 'razorpay_id': razorpayId,
-    'category_id': categoryId,
-    'user_id': userId};
-  var res = await Network().authData(data, '/subscription');
-  var body = json.decode(res.body);
-  if (body['success']) {
-    print('success');
-  } else {
-    print('failure');
-  }
-}
+
+// void _subscription() async {
+//   var data = {
+//     'name': name,
+//     'amount': amount,
+//     // 'order_id': orderId,
+//     // 'razorpay_id': razorpayId,
+//     'category_id': categoryId,
+//     'user_id': userId};
+//   var res = await Network().postData(data, '/subscription');
+//   var body = json.decode(res.body);
+//   if (body['success']) {
+//     print('success');
+//   } else {
+//     print('failure');
+//   }
+// }
 }

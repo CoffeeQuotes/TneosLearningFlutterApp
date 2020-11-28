@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ext_video_player/ext_video_player.dart';
@@ -81,7 +83,7 @@ class _VideoState extends State<Video> {
                       board: board,
                       videoClass: videoClass,
                     ),
-                    VideoProgressIndicator(
+                    _controller.value.isPlaying? SizedBox.shrink() : VideoProgressIndicator(
                       _controller,
                       allowScrubbing: true,
                       colors: VideoProgressColors(
@@ -101,68 +103,6 @@ class _VideoState extends State<Video> {
       ),
     );
   }
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     body: RotatedBox(
-  //
-  //         quarterTurns: 1,
-  //         child: SizedBox.expand(
-  //             child: _controller.value.initialized
-  //                 ? FittedBox(
-  //                     fit: BoxFit.contain,
-  //                     //   ? AspectRatio(
-  //                     // aspectRatio: _controller.value.aspectRatio,
-  //                     child: SizedBox(
-  //                       width: _controller.value.aspectRatio,
-  //                       height: 1,
-  //                       child: Stack(
-  //                           alignment: Alignment.bottomCenter,
-  //                           children: [
-  //                             VideoPlayer(_controller),
-  //                             VideoProgressIndicator(
-  //                               _controller,
-  //                               allowScrubbing: true,
-  //                             ),
-  //
-  //                             GestureDetector(
-  //                               onTap: () {
-  //                                 setState(() {
-  //                                   _controller.value.isPlaying
-  //                                       ? _controller.pause()
-  //                                       : _controller.play();
-  //                                 });
-  //                               }
-  //                             ),
-  //                           ]
-  //                       ),
-  //                     ),
-  //                   )
-  //
-  //                 : Container(
-  //                   color: Colors.black26,
-  //                   child: Center(
-  //                   child: Icon(
-  //                   Icons.play_arrow,
-  //                   color: Colors.white,
-  //                   size: 100.0,
-  //                 ),
-  //               ),
-  //             ))),
-  //     floatingActionButton: FloatingActionButton(
-  //       onPressed: () {
-  //         setState(() {
-  //           _controller.value.isPlaying
-  //               ? _controller.pause()
-  //               : _controller.play();
-  //         });
-  //       },
-  //       child: Icon(
-  //         _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-  //       ),
-  //     ),
-  //   );
-  // }
-
 }
 
 class _PlayPauseOverlay extends StatelessWidget {
@@ -197,14 +137,14 @@ class _PlayPauseOverlay extends StatelessWidget {
                         Expanded(
                           child: Container(
                             alignment: Alignment.center,
-                            padding: const EdgeInsets.only(top: 20.0),
                             child: Text(
                               title,
                               style: TextStyle(
                                 color: ArgonColors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
                                 decoration: TextDecoration.none,
+
                                 fontFamily: 'Opensans',
                                 shadows: <Shadow>[
                                   Shadow(
@@ -223,52 +163,76 @@ class _PlayPauseOverlay extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Icon(
-                            Icons.play_arrow,
-                            color: Colors.white,
-                            size: 100.0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: ArgonColors.black.withOpacity(0.5),
+                            ),
+                            child: Icon(
+                              Icons.play_arrow,
+                              color: Colors.white,
+                              size: 60.0,
+                            ),
                           ),
                         ),
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text(
-                                board,
-                                style: TextStyle(
-                                  color: ArgonColors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  decoration: TextDecoration.none,
-                                  fontFamily: 'Opensans',
-                                  backgroundColor: ArgonColors.warning,
-                                  letterSpacing: 1,
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: ArgonColors.warning,
+                                  borderRadius: BorderRadius.circular(24),
+                                ),
+                                child: Text(
+                                  board,
+                                  style: TextStyle(
+                                    color: ArgonColors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.none,
+                                    fontFamily: 'Opensans',
+                                    letterSpacing: 1,
+                                  ),
                                 ),
                               ),
-                              Text(
-                                subject,
-                                style: TextStyle(
-                                  color: ArgonColors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  decoration: TextDecoration.none,
-                                  fontFamily: 'Opensans',
-                                  backgroundColor: ArgonColors.success,
-                                  letterSpacing: 1,
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: ArgonColors.success,
+                                  borderRadius: BorderRadius.circular(24),
+                                ),
+                                child: Text(
+                                  subject,
+                                  style: TextStyle(
+                                    color: ArgonColors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.none,
+                                    fontFamily: 'Opensans',
+                                    letterSpacing: 1,
+                                  ),
                                 ),
                               ),
-                              Text(
-                                videoClass + "th class",
-                                style: TextStyle(
-                                  color: ArgonColors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  decoration: TextDecoration.none,
-                                  fontFamily: 'Opensans',
-                                  backgroundColor: ArgonColors.primary,
-                                  letterSpacing: 1,
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: ArgonColors.primary,
+                                  borderRadius: BorderRadius.circular(24),
                                 ),
-                              ),
+                                child: Text(
+                                  videoClass + "th class",
+                                  style: TextStyle(
+                                    color: ArgonColors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.none,
+                                    fontFamily: 'Opensans',
+                                    letterSpacing: 1,
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         )

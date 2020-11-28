@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tneos_eduloution/network_utils/live.dart';
 import 'package:tneos_eduloution/network_utils/lives-api.dart';
+import 'package:tneos_eduloution/screen/paidcourses.dart';
 import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/card-small.dart';
@@ -46,14 +47,14 @@ class _LiveListState extends State<LiveList> {
                                 CardSmall(
                                     tap: () {
                                       //Navigator.push(context, MaterialPageRoute(builder: (context)=> Video(,list,),));
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> PaidLiveList()));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> PaidCourses()));
                                     },
                                     cta: "Watch Now",
                                     title: '${list.title}',
                                     liveclass: '${list.lifeClass.toString()}th class',
                                     board: '${list.board}',
                                     subject: '${list.subject}',
-                                    img: 'http://10.0.2.2:8000/storage/${list.image}',
+                                    img: 'https://tneos.in/storage/${list.image}',
                                 ),
                               ],
                             ),

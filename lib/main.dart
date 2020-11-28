@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         "/liveslist" : (BuildContext context) => LiveList(),
         "/login" : (BuildContext context) => Login(),
         "/home" : (BuildContext context) => Home(),
-        "/paidLive" : (BuildContext context) => PaidLiveList()
+        // "/paidLive" : (BuildContext context) => PaidLiveList()
       },
       // home: CheckAuth(),
     );
