@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/styles/style.dart';
@@ -65,16 +66,6 @@ class _RegisterState extends State<Register> {
                             children: <Widget>[
                               Container(
 
-                                decoration: BoxDecoration(
-                                    //
-                                    // gradient: LinearGradient(
-                                    //     colors: [
-                                    //       Color(0xFF00c2cb).withOpacity(0.5),
-                                    //       Color(0xFF5e17eb).withOpacity(0.5)
-                                    //     ]
-                                    // ),
-                                ),
-
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Form(
@@ -114,6 +105,9 @@ class _RegisterState extends State<Register> {
                                             if (emailValue.isEmpty) {
                                               return 'Please enter email';
                                             }
+                                            if(!EmailValidator.validate(emailValue)) {
+                                              return 'Email is not valid';
+                                            }
                                             email = emailValue;
                                             return null;
                                           },
@@ -147,6 +141,9 @@ class _RegisterState extends State<Register> {
                                             if (nameValue.isEmpty) {
                                               return 'Please enter your first name';
                                             }
+                                            if (nameValue.length < 2) {
+                                              return  'Name not long enough';
+                                            }
                                             name = nameValue;
                                             return null;
                                           },
@@ -178,8 +175,11 @@ class _RegisterState extends State<Register> {
                                             ),
                                           ),
                                           validator: (passwordValue) {
-                                            if (passwordValue.isEmpty && passwordValue.length < 8) {
+                                            if (passwordValue.isEmpty) {
                                               return 'Please enter some text';
+                                            }
+                                            if (passwordValue.length < 8) {
+                                              return 'Your Password is too short';
                                             }
                                             password = passwordValue;
                                             return null;
