@@ -4,6 +4,8 @@
 
 This project is designed for Tneos Eduloutions Limited. This is education Platform, which focuses on state board, CBSE and also competetive examinations. The project is developed in Flutter.
 
+[Google PlayStore Page](https://play.google.com/store/apps/details?id=com.tneos.tneos_eduloution)
+
 <img src="screenshot/ss (1).png" height="25%" width="25%"/>
 <img src="screenshot/ss (2).png" height="25%" width="25%"/>
 <img src="screenshot/ss (3).png" height="25%" width="25%"/>
