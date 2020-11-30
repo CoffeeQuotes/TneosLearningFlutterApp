@@ -247,7 +247,7 @@ class _LoginState extends State<Login> {
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.setString('token', json.encode(body['token']));
       localStorage.setString('user', json.encode(body['user']));
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         new MaterialPageRoute(builder: (context) => LiveList()),
       );

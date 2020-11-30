@@ -18,11 +18,24 @@ class _RegisterState extends State<Register> {
   var email;
   var password;
   var name;
-
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  _showMsg(msg) {
+    final snackBar = SnackBar(
+      content: Text(msg),
+      action: SnackBarAction(
+        label: 'Close',
+        onPressed: () {
+          // Some code to undo the change!
+        },
+      ),
+    );
+    _scaffoldKey.currentState.showSnackBar(snackBar);
+  }
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
+        key: _scaffoldKey,
         body: Container(
           child: SingleChildScrollView(
             child: SafeArea(
@@ -165,7 +178,7 @@ class _RegisterState extends State<Register> {
                                             ),
                                           ),
                                           validator: (passwordValue) {
-                                            if (passwordValue.isEmpty) {
+                                            if (passwordValue.isEmpty && passwordValue.length < 8) {
                                               return 'Please enter some text';
                                             }
                                             password = passwordValue;
@@ -265,12 +278,14 @@ class _RegisterState extends State<Register> {
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.setString('token', json.encode(body['token']));
       localStorage.setString('user', json.encode(body['user']));
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         new MaterialPageRoute(
             builder: (context) => Home()
         ),
       );
+    } else {
+      _showMsg(body['message']);
     }
 
     setState(() {

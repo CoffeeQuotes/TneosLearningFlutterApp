@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/network_utils/api.dart';
+import 'package:tneos_eduloution/screen/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/drawer-tile.dart';
@@ -95,7 +96,7 @@ class ArgonDrawer extends StatelessWidget {
                       icon: FontAwesomeIcons.signOutAlt,//Icons.logout,
                       onTap: () {
                           logout();
-                          Navigator.pushReplacementNamed(context, '/login');
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Login()));
                         },
                       iconColor: ArgonColors.primary,
                       title: "Logout",
