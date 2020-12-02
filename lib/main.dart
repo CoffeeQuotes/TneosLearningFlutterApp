@@ -5,7 +5,6 @@ import 'package:tneos_eduloution/screen/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/screen/onboarding.dart';
 import 'package:tneos_eduloution/screen/packageslist.dart';
-import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/screen/profilepage.dart';
 import 'package:tneos_eduloution/screen/register.dart';
 

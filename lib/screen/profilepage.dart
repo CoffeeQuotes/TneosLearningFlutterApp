@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tneos_eduloution/network_utils/profile-api.dart';
 import 'package:tneos_eduloution/screen/home.dart';
 import 'package:tneos_eduloution/screen/paidcourses.dart';
-import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/screen/viewer.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/drawer.dart';

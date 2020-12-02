@@ -4,7 +4,6 @@ import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:tneos_eduloution/network_utils/live.dart';
 import 'package:tneos_eduloution/network_utils/lives-api.dart';
 import 'package:tneos_eduloution/screen/paidcourses.dart';
-import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/card-small.dart';
 import 'package:tneos_eduloution/widgets/drawer.dart';

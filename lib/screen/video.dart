@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ext_video_player/ext_video_player.dart';
@@ -120,6 +119,12 @@ class _PlayPauseOverlay extends StatelessWidget {
   final String videoClass;
   final String subject;
   final String board;
+  // static const _playbackRates = [
+  //   0.25,
+  //   0.5,
+  //   1.0,
+  //   2.0
+  // ];
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -175,6 +180,25 @@ class _PlayPauseOverlay extends StatelessWidget {
                             ),
                           ),
                         ),
+                        // Align(
+                        //   alignment: Alignment.topRight,
+                        //   child: PopupMenuButton<double>(
+                        //     initialValue: controller.value.playbackSpeed,
+                        //     tooltip: 'Playback speed',
+                        //     onSelected: (speed) {
+                        //       controller.setPlaybackSpeed(speed);
+                        //     },
+                        //     itemBuilder: (context) {
+                        //       return [
+                        //         for (final speed in _playbackRates)
+                        //           PopupMenuItem(
+                        //             value: speed,
+                        //             child: Text('${speed}x'),
+                        //           )
+                        //       ];
+                        //     },
+                        //   ),
+                        // ),
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

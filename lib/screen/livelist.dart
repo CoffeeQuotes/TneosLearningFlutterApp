@@ -3,7 +3,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tneos_eduloution/network_utils/live.dart';
 import 'package:tneos_eduloution/network_utils/lives-api.dart';
 import 'package:tneos_eduloution/screen/paidcourses.dart';
-import 'package:tneos_eduloution/screen/paidliveslist.dart';
 import 'package:tneos_eduloution/styles/style.dart';
 import 'package:tneos_eduloution/widgets/card-small.dart';
 import 'package:tneos_eduloution/widgets/drawer.dart';
