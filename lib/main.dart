@@ -15,19 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Test App',
+      title: 'Tneos Eduloution',
       theme: ThemeData(fontFamily: 'OpenSans'),
       initialRoute: "/onboarding",
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        "/" : (BuildContext context) => CheckAuth(),
-        "/onboarding": (BuildContext context) =>  new Onboarding(),
-        "/checkauth" : (BuildContext context) => CheckAuth(),
-        "/packages"  : (BuildContext context) => PackagesList(),
-        "/profile" : (BuildContext context) => ProfilePage(),
-        "/liveslist" : (BuildContext context) => LiveList(),
-        "/login" : (BuildContext context) => Login(),
-        "/home" : (BuildContext context) => Home(),
+        "/": (BuildContext context) => CheckAuth(),
+        "/onboarding": (BuildContext context) => new Onboarding(),
+        "/checkauth": (BuildContext context) => CheckAuth(),
+        "/packages": (BuildContext context) => PackagesList(),
+        "/profile": (BuildContext context) => ProfilePage(),
+        "/liveslist": (BuildContext context) => LiveList(),
+        "/login": (BuildContext context) => Login(),
+        "/home": (BuildContext context) => Home(),
         // "/paidLive" : (BuildContext context) => PaidLiveList()
       },
       // home: CheckAuth(),

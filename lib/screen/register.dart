@@ -139,7 +139,7 @@ class _RegisterState extends State<Register> {
                                           ),
                                           validator: (nameValue) {
                                             if (nameValue.isEmpty) {
-                                              return 'Please enter your first name';
+                                              return 'Please enter your full name';
                                             }
                                             if (nameValue.length < 2) {
                                               return  'Name not long enough';
